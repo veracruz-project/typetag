@@ -1,3 +1,4 @@
+use std::prelude::v1::*;
 use crate::{DeserializeFn, Registry};
 use serde::de::{self, DeserializeSeed, Deserializer, Expected, Visitor};
 use std::fmt;

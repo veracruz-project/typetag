@@ -2,7 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
-#[typetag::serde(tag = "type")]
+#[typetag::serde(tag = "anything_here")]
 trait WebEvent {
     fn inspect(&self);
 }
