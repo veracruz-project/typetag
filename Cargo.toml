@@ -16,10 +16,10 @@ exclude = ["/sgx/*"]
 #members = ["impl"]
 
 [dependencies]
-erased-serde = { git = "https://github.com/mesalock-linux/erased-serde-sgx" }
-inventory = { git = "https://github.com/mesalock-linux/inventory-sgx" }
+erased-serde = { git = "https://github.com/veracruz-project/erased-serde.git", branch="veracruz" }
+inventory = { git = "https://github.com/veracruz-project/inventory.git", branch="veracruz" }
 lazy_static = { version = "1.0", features = ["spin_no_std"] }
-serde = { version = "1.0", features = ["derive"], git = "https://github.com/mesalock-linux/serde-sgx" }
+serde = { features = ["derive"], git = "https://github.com/veracruz-project/serde.git", branch="veracruz" }
 typetag-impl = { version = "=0.1.4", path = "impl" }
 sgx_tstd = { rev = "v1.1.2", git = "https://github.com/apache/teaclave-sgx-sdk.git", optional = true }
 
@@ -28,5 +28,5 @@ sgx_tstd = { rev = "v1.1.2", git = "https://github.com/apache/teaclave-sgx-sdk.g
 #serde_json = "1.0"
 
 [features]
-default = ["mesalock_sgx"]
-mesalock_sgx = ["sgx_tstd"]
+default = []
+mesalock_sgx = ["sgx_tstd", "erased-serde/mesalock_sgx", "inventory/mesalock_sgx",  "serde/mesalock_sgx"]
